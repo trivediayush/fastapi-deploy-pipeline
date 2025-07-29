@@ -12,5 +12,5 @@ resource "aws_instance" "app_server" {
     Name = "fastapi-server"
   }
 
-  user_data = file("scripts/deploy.sh")
+  user_data = file("/scripts/deploy.sh")
 }
