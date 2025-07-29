@@ -16,9 +16,20 @@ jobs:
       with:
         python-version: '3.9'
 
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.7.4 
+
     - name: Install dependencies
       run: |
         pip install -r app/requirements.txt
+    
+    - name: Init Terraform
+      run: terraform init
+      working-directory: ./infra
+
 
     - name: Run Tests
       run: |
